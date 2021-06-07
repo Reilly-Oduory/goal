@@ -1,7 +1,7 @@
 {% macro displayTopNews(news_list) %}
 
     {% for news_item in news_list %}
-        <div class="card" style="background: #fafafa; margin-bottom: 2em; border: solid; border-color: #777777; border-radius: 15px; padding: 2vh 4vh;">
+        <div class="card" style="background: #fafafa; margin-bottom: 2em; padding: 2vh 4vh;">
             <img src="{{ news_item.image_url }}" class=" text-center card-img-top" style="height: 150px;">
             <div class="card-body">
                 <h3 class="card-title">{{ news_item.title }}</h3>

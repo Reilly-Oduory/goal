@@ -25,6 +25,7 @@ def get_news(category):
 def process_results(news_list):
     news_results = []
     for news_item in news_list:
+        source_id = news_item.get('source')
         author = news_item.get('author')
         title = news_item.get('title')
         description = news_item.get('description')
@@ -33,7 +34,8 @@ def process_results(news_list):
         publishedAt = news_item.get('publishedAt')
 
         if image_url:
-            news_object = News(source, author, title, description,opening_url,image_url,publishedAt)
+            news_object = News(author, title, description,opening_url,image_url,publishedAt)
             news_results.append(news_object)
+            print(source_id)
 
     return  news_results
