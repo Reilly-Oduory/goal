@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+
+{% block content %}
+    <ul>
+        {{ macro.displayTopNews(science_news) }}
+    </ul>
+{% endblock %}
