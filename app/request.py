@@ -1,3 +1,4 @@
+from app.news_test import News
 from app import app
 import urllib.request, json
 from .models import news
@@ -19,12 +20,17 @@ def get_news(category):
     return news_results
 
 def process_results(news_list):
-    news_list = []
+    news_results = []
     for news_item in news_list:
         source = news_item.get('source')
         author = news_item.get('author')
         title = news_item.get('title')
-        description = news_item.get('descripption')
+        description = news_item.get('description')
         opening_url = news_item.get('url')
         image_url = news_item.get('urlToImage')
         publishedAt = news_item.get('publishedAt')
+
+        news_object = News(source, author, title, description,opening_url,image_url,publishedAt)
+        news_results.append(news_object)
+
+    return  news_results
