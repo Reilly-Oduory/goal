@@ -1,4 +1,3 @@
-from app import app
 import urllib.request, json
 from .models import news
 from .models import source
@@ -6,8 +5,13 @@ from .models import source
 News = news.News
 Source = source.Source
 
-apiKey = app.config['NEWS_API_KEY']
-base_url = app.config['NEWS_API_TOP_BASE_URL']
+apiKey = None
+base_url = None
+
+def configure_requests(app):
+    global apiKey,base_url
+    apiKey = app.config['NEWS_API_KEY']
+    base_url = app.config['NEWS_API_TOP_BASE_URL']
 
 def get_news(category):
     get_news_url = base_url.format(category,apiKey)
